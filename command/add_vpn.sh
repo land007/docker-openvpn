@@ -1,6 +1,6 @@
 #!/bin/bash
-docker run -v ~/docker/openvpn:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full $1
-docker run -v ~/docker/openvpn:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient $1 > $1.ovpn
+docker run -v ovpn-data:/etc/openvpn --rm -it land007/openvpn easyrsa build-client-full $1
+docker run -v ovpn-data:/etc/openvpn --rm land007/openvpn ovpn_getclient $1 > $1.ovpn
 echo "$1.ovpn"
 sed -i -e 's/redirect-gateway/#redirect-gateway/g' $1.ovpn
 echo '
