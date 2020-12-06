@@ -29,3 +29,5 @@ RUN chmod a+x /usr/local/bin/*
 
 # Add support for OTP authentication using a PAM module
 ADD ./otp/openvpn /etc/pam.d/
+
+#> docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t land007/openvpn:latest --push .
